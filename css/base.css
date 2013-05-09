@@ -1,0 +1,55 @@
+/*
+    Document   : base.css
+    Created on : Apr 26, 2013, 4:32:16 PM
+    Author     : Matt Gass
+    Description:
+        CSS related to the entire site
+*/
+
+root {
+    display: block;
+}
+
+body{
+	background-color:#eeeeee;
+}
+
+#wrapper {
+	width:1000px; /* Change this to the width of the layout */
+	margin-right:auto;
+	margin-left:auto;
+	margin-top:-8px;
+}
+
+#header{
+	height:100px;
+	background-color:#FFFFFF;
+	background-image:url('/assets/images/main/header-background.gif');
+	background-repeat:no-repeat;
+}
+
+#header p{
+font-family: Arial, Verdana, Helvetica, sans-serif;
+text-align:left;
+font-size:22px;
+color:#003365;
+font-weight:bold;
+}
+
+h1 {
+padding-left:8px;
+font-size:17px;
+font-family:Arial;
+color:#000066;
+}
+
+h2,h3,h4,h5,h6 {
+padding-left:8px;
+font-size:15px;
+font-family:Arial;
+color:#000066;
+}
+
+.small{
+font-size:10px;
+}

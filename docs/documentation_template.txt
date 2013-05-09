@@ -1,0 +1,44 @@
+An example header for any files created for the Sportz project:
+/**
+ * Sportz
+ *
+ * A web application for sports enthusiasts
+ *
+ * @package		Sportz
+ * @author		The San Diego PHP Study group (SDPHP-SG) team.
+ * @copyright	Copyright (c) SDPHP-SG.
+ * @license
+ * @link
+ * @since		Version 1.0
+ * @filesource
+ */
+
+// ------------------------------------------------------------------------
+
+An example documentation stub for classes:
+/**
+ * Sportz Example Class
+ *
+ * This class enables you to etc..
+ *
+ *
+ * @package		Sportz
+ * @subpackage	Libraries
+ * @category	Libraries
+ * @author		The SDPHP-SG team.
+ * @link
+ */
+class example {}
+
+
+An example documentation for methods:
+// --------------------------------------------------------------------
+
+/**
+ * Set Reply-to
+ *
+ * @access	public
+ * @param	string
+ * @param	string
+ * @return	void
+ */

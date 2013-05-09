@@ -38,34 +38,11 @@
 |
 */
 
-//$route['default_controller'] = "welcome";
-//$route['404_override'] = '';
-
-
-//$route['default_controller'] = 'pages/view';
-//$route['(:any)'] = 'pages/view/$1';
-
-//$route['news/(:any)'] = 'view/$1';
-//$route['news'] = 'news';
-//$route['(:any)'] = 'pages/view/$1';
-//$route['default_controller'] = 'pages/view';
-
-$route['sims/create'] = 'sims/create';
-$route['sims/(:any)'] = 'sims/view/$1';
-$route['sims'] = 'sims';
-
-$route['news/create'] = 'news/create';
-$route['news/(:any)'] = 'news/view/$1';
-$route['news'] = 'news';
-$route['(:any)'] = 'pages/view/$1';
-
-
-//$route['default_controller'] = 'pages/view';
-
-$route['default_controller'] = 'pages/view';
-
-
-
+//$route['(:any)'] = 'main/home';
+$route['(main)'] = 'main/home';
+$route['(basketball)'] = 'basketball/home';
+$route['default_controller'] = 'main/home';
+$route['404_override'] = 'main/home';
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

@@ -1,0 +1,52 @@
+/*
+    Document   : navbar.css
+    Created on : Apr 26, 2013, 4:32:16 PM
+    Author     : Matt Gass
+    Description:
+        CSS related to the basketball menu bar
+*/
+
+#bb_navbar{
+margin-top:2px;
+background:#003365;
+line-height:35px;
+}
+
+#bb_navlist li{
+display: inline;
+list-style-type: none;
+}
+
+#bb_navlist a{
+color:white;
+font-weight:normal;
+font-family: Helvetica;
+font-size:12px;
+text-decoration:none;
+padding-left: 5px;
+padding-right: 5px;
+}
+
+#bb_navlist a:hover{
+font-weight:normal;
+font-family: Helvetica;
+font-size:12px;
+text-decoration:none;
+padding-top:13px;
+padding-bottom:12px;
+background-color:#369;
+color:white;
+line-height:35px;
+}
+
+#bb_navlist #currentpage a{
+display: inline;
+list-style-type: none;
+padding-left: 5px;
+padding-right: 5px;
+padding-top:12px;
+padding-bottom:11px;
+background-color:#369;
+color:white;
+line-height:35px;
+}

@@ -1,0 +1,1 @@
+This file describes how to setup your development environment using wampserver and netbeans.

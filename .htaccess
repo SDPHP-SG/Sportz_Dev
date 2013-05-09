@@ -1,0 +1,11 @@
+#This file is used for apache commands.  It is especially useful when you don't have access to your apache server (for instance you are
+#running on an ISP and they don't give you access).
+
+#use these commands to turn on mod rewrite (consider that it's use has overhead):
+#mod rewrite forces any url entered by the user to redirect, in this case back to the index.php.  This is useful for security and
+#stops users from phishing around for files on your site.
+RewriteEngine on
+#Don't redirect calls to index.php, files under the assets or css folders, or robots.txt
+RewriteCond $1 !^(index\.php|assets|css|robots\.txt)
+#Redirect calls to any files except those in the above rewritecond to index.php
+RewriteRule ^(.*)$ /index.php/$1 [L]

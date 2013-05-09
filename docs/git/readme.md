@@ -1,0 +1,1 @@
+This folder will contain documentation for using git for this project, for example the work flow determined by the group for pulling the sportz repository down to your local machine and modifying files and finally pushing back up to the repository.
