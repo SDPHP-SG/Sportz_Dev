@@ -6,22 +6,42 @@ File Format:
 Files should be saved with Unicode (UTF-8) encoding. The BOM should not be used. Unlike UTF-16 and UTF-32, there's no byte order to indicate in a UTF-8 encoded file, and the BOM can have a negative side effect in PHP of sending output, preventing the application from being able to set its own headers. Unix line endings should be used (LF).
 
 PHP Closing Tag:
-
 The PHP closing tag on a PHP document ?> is optional to the PHP parser. However, if used, any whitespace following the closing tag, whether introduced by the developer, user, or an FTP application, can cause unwanted output, PHP errors, or if the latter are suppressed, blank pages. For this reason, all PHP files should OMIT the closing PHP tag, and instead use a comment block to mark the end of file and it's location relative to the application root. This allows you to still identify a file as being complete and not truncated.
-INCORRECT: <?php echo "Here's my code!"; ?> CORRECT: <?php echo "Here's my code!"; /* End of file myfile.php */ /* Location: ./system/modules/mymodule/myfile.php */
+INCORRECT: <?php echo "Here's my code!"; ?>
+CORRECT: <?php echo "Here's my code!"; /* End of file myfile.php */ /* Location: ./system/modules/mymodule/myfile.php */
 
-Class and Method Naming
-
+Class and Method Naming:
 Class names should always start with an uppercase letter. Multiple words should be separated with an underscore, and not CamelCased. All other class methods should be entirely lowercased and named to clearly indicate their function, preferably including a verb. Try to avoid overly long and verbose names.
-INCORRECT: class superclass class SuperClass CORRECT: class Super_class class Super_class { function __construct() { } }
+INCORRECT: class superclass; class SuperClass
+CORRECT: class Super_class; class Super_class { function __construct() { } }
 
 Examples of improper and proper method naming:
-INCORRECT: function fileproperties() // not descriptive and needs underscore separator function fileProperties() // not descriptive and uses CamelCase function getfileproperties() // Better! But still missing underscore separator function getFileProperties() // uses CamelCase function get_the_file_properties_from_the_file() // wordy CORRECT: function get_file_properties() // descriptive, underscore separator, and all lowercase letters
+INCORRECT:
+  function fileproperties() // not descriptive and needs underscore separator
+  function fileProperties() // not descriptive and uses CamelCase
+  function getfileproperties() // Better! But still missing underscore separator
+  function getFileProperties() // uses CamelCase
+  function get_the_file_properties_from_the_file() // wordy
+CORRECT:
+  function get_file_properties() // descriptive, underscore separator, and all lowercase letters
+
 Variable Names
 
 The guidelines for variable naming is very similar to that used for class methods. Namely, variables should contain only lowercase letters, use underscore separators, and be reasonably named to indicate their purpose and contents. Very short, non-word variables should only be used as iterators in for() loops.
-INCORRECT: $j = 'foo'; // single letter variables should only be used in for() loops $Str // contains uppercase letters $bufferedText // uses CamelCasing, and could be shortened without losing semantic meaning $groupid // multiple words, needs underscore separator $name_of_last_city_used // too long CORRECT: for ($j = 0; $j < 10; $j++) $str $buffer $group_id $last_city
-Commenting
+INCORRECT:
+  $j = 'foo'; // single letter variables should only be used in for() loops
+  $Str // contains uppercase letters
+  $bufferedText // uses CamelCasing, and could be shortened without losing semantic meaning
+  $groupid // multiple words, needs underscore separator
+  $name_of_last_city_used // too long
+CORRECT:
+  for ($j = 0; $j < 10; $j++)
+  $str
+  $buffer
+  $group_id
+  $last_city
+
+Commenting:
 
 In general, code should be commented prolifically. It not only helps describe the flow and intent of the code for less experienced programmers, but can prove invaluable when returning to your own code months down the line. There is not a required format for comments, but the following are recommended.
 
@@ -130,7 +150,6 @@ MySQL keywords are always capitalized: SELECT, INSERT, UPDATE, WHERE, AS, JOIN, 
 
 Break up long queries into multiple lines for legibility, preferably breaking for each clause.
 INCORRECT: // keywords are lowercase and query is too long for // a single line (... indicates continuation of line) $query = $this->db->query("select foo, bar, baz, foofoo, foobar as raboof, foobaz from exp_pre_email_addresses ...where foo != 'oof' and baz != 'zab' order by foobaz limit 5, 100"); CORRECT: $query = $this->db->query("SELECT foo, bar, baz, foofoo, foobar AS raboof, foobaz FROM exp_pre_email_addresses WHERE foo != 'oof' AND baz != 'zab' ORDER BY foobaz LIMIT 5, 100");
-Default Function Arguments
 
-Whenever appropriate, provide function argument defaults, which helps prevent PHP errors with mistaken calls and provides common fallback values which can save a few lines of code. Example:
-function foo($bar = '', $baz = FALSE)
+Default Function Arguments:
+Whenever appropriate, provide function argument defaults, which helps prevent PHP errors with mistaken calls and provides common fallback values which can save a few lines of code. Example: function foo($bar = '', $baz = FALSE)

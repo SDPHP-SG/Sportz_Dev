@@ -6,6 +6,10 @@
         CSS related to the module "main"
 */
 
-body{
-	background-color:#eeeeee;
+#header p{
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	text-align:left;
+	font-size:22px;
+	color:#003365;
+	font-weight:bold;
 }

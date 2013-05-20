@@ -16,4 +16,6 @@ class Home extends CI_Controller {
 		$this->load->view('basketball/home', $data);
 		$this->load->view('basketball/templates/footer');
 	}
-}
+}//end of class Home
+
+/* End of file home.php */

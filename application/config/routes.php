@@ -39,9 +39,14 @@
 */
 
 //$route['(:any)'] = 'main/home';
-$route['(main)'] = 'main/home';
-$route['(basketball)'] = 'basketball/home';
-$route['default_controller'] = 'main/home';
+$route['main'] = 'main/home';
+$route['home'] = 'main/home';
+$route['signup'] = 'main/home/signup';
+$route['login'] = 'main/home/login';
+$route['logout'] = 'main/home/logout';
+$route['basketball'] = 'main/home/index/basketball';
+
+$route['default_controller'] = 'main/home/index';
 $route['404_override'] = 'main/home';
 
 /* End of file routes.php */

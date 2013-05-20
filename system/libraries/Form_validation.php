@@ -591,7 +591,6 @@ class CI_Form_validation {
 
 				// Run the function and grab the result
 				$result = $this->CI->$rule($postdata, $param);
-
 				// Re-assign the result to the master data array
 				if ($_in_array == TRUE)
 				{
@@ -937,7 +936,7 @@ class CI_Form_validation {
 
 		return ($str !== $field) ? FALSE : TRUE;
 	}
-	
+
 	// --------------------------------------------------------------------
 
 	/**
@@ -952,7 +951,7 @@ class CI_Form_validation {
 	{
 		list($table, $field)=explode('.', $field);
 		$query = $this->CI->db->limit(1)->get_where($table, array($field => $str));
-		
+
 		return $query->num_rows() === 0;
     }
 

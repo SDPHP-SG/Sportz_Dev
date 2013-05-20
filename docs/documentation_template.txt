@@ -1,4 +1,4 @@
-An example header for any files created for the Sportz project:
+/*An example header for any files created for the Sportz project:
 /**
  * Sportz
  *
@@ -15,7 +15,7 @@ An example header for any files created for the Sportz project:
 
 // ------------------------------------------------------------------------
 
-An example documentation stub for classes:
+/*An example documentation stub for classes:
 /**
  * Sportz Example Class
  *
@@ -31,7 +31,7 @@ An example documentation stub for classes:
 class example {}
 
 
-An example documentation for methods:
+/*An example documentation for methods:
 // --------------------------------------------------------------------
 
 /**

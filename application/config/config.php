@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= "http://www.php-study-group.dev/";
+$config['base_url']	= "http://sportz.loc/";
 
 /*
 |--------------------------------------------------------------------------
@@ -224,7 +224,7 @@ $config['cache_path'] = '';
 | MUST set an encryption key.  See the user guide for info.
 |
 */
-$config['encryption_key'] = '';
+$config['encryption_key'] = '750c783e6ab0b503eaa86e310a5db738';
 
 /*
 |--------------------------------------------------------------------------
