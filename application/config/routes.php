@@ -39,12 +39,15 @@
 */
 
 //$route['(:any)'] = 'main/home';
-$route['main'] = 'main/home';
-$route['home'] = 'main/home';
-$route['signup'] = 'main/home/signup';
-$route['login'] = 'main/home/login';
-$route['logout'] = 'main/home/logout';
-$route['basketball'] = 'main/home/index/basketball';
+$route['main'] = 'main/home/index';
+$route['home'] = 'main/home/index';
+$route['about'] = 'main/home/about';
+$route['contact'] = 'main/home/contact';
+$route['signup'] = 'main/users/signup';
+$route['login'] = 'main/users/login';
+$route['logout'] = 'main/users/logout';
+
+$route['basketball'] = 'basketball/home/index';
 
 $route['default_controller'] = 'main/home/index';
 $route['404_override'] = 'main/home';

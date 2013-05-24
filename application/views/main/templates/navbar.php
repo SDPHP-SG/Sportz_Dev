@@ -4,6 +4,8 @@
 	<ul id="navlist">
 		<li><?php echo anchor('home', 'Home')?></li>
 		<li><?php echo anchor('basketball', 'Basketball')?></li>
+		<li><?php echo anchor('about', 'About')?></li>
+		<li><?php echo anchor('contact', 'Contact')?></li>
 	</ul>
 </div>
-<div class="div_clear" />
+<div class="div_clear"></div>

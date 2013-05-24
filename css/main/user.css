@@ -16,16 +16,15 @@
 }
 
 #welcome_container {
-	width: 100px;
 	text-align: center;
-	font-size: 14px;
+	font-size: 16px;
     line-height: 2em;
 }
 
 #login_container, #signup_container {
 	width: 400px;
-	margin: 10px auto 2px 200px;
-	padding: 2px;
+	margin: 2px auto 2px 300px;
+	padding: 20px;
 	font-size: 11px;
     line-height: 2em;
 }

@@ -16,4 +16,4 @@
 		?>
 	</div> <!-- end div header -->
 </div> <!-- end div header_container -->
-<div class="div_clear" />
+<div class="div_clear"></div>

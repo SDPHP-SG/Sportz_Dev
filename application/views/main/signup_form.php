@@ -2,7 +2,7 @@
 
 <div id="signup_container" class="user_form">
 	<?php
-	echo form_open('main/home/signup');
+	echo form_open('main/users/signup');
 
 	echo '<div>';
 	/* username */

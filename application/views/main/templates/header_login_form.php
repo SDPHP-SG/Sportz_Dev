@@ -1,6 +1,6 @@
 <div id="header_login_container" class="user_form">
 	<?php
-	echo form_open('main/home/login');
+	echo form_open('main/users/login');
 
 	echo '<div>';
 	/* username */
@@ -35,7 +35,9 @@
 		'id' => 'login_button',
 		'class' => 'button',
 		'value' => 'Log In',
-		'tabindex' => '3'
+		'tabindex' => '3',
+		'onclick' => 'test()',
+		'onsubmit' => 'test()'
 	);
 	echo form_submit($submit_data);
 	echo '</div>';
@@ -57,3 +59,4 @@
 
 	echo form_close();
 	echo '</div>'; //end of div header_login_container
+	?>

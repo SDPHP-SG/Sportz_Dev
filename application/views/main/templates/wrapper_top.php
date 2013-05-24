@@ -1,7 +1,8 @@
 
 <?php
 //Generate different doctypes based on the browser used ie quirks mode
-echo doctype(); ?>
+echo doctype();
+?>
 
 <head>
 	<link rel="stylesheet" type="text/css" href="/css/base.css" />

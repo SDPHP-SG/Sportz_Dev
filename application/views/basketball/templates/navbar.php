@@ -6,4 +6,4 @@
 		<li><?php echo anchor('basketball/players', 'Players')?></li>
 	</ul>
 </div>
-<div class="div_clear" />
+<div class="div_clear"></div>

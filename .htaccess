@@ -6,6 +6,6 @@
 #stops users from phishing around for files on your site.
 RewriteEngine on
 #Don't redirect calls to index.php, files under the assets or css folders, or robots.txt
-RewriteCond $1 !^(index\.php|assets|css|robots\.txt)
+RewriteCond $1 !^(index\.php|assets|css|robots\.txt|js)
 #Redirect calls to any files except those in the above rewritecond to index.php
 RewriteRule ^(.*)$ /index.php/$1 [L]
