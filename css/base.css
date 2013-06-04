@@ -11,11 +11,12 @@ root {
 }
 
 body{
-	background-color:#eeeeee;
+	background-color: #E3E3F5;
 	margin: 0;
 	padding: 0;
 	font-family: arial;
-	/*background-image:url('/assets/images/main/header-background.gif');*/
+	background-image:url("/assets/images/main/body_background.jpg");
+	background-repeat: repeat-x;
 }
 
 h1 {

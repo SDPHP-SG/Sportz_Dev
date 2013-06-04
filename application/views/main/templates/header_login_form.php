@@ -1,6 +1,6 @@
 <div id="header_login_container" class="user_form">
 	<?php
-	echo form_open('main/users/login');
+	echo form_open('login');
 
 	echo '<div>';
 	/* username */

@@ -181,6 +181,6 @@ class Users extends CI_Controller {
 	}
 }
 
-//end of class Home
+//end of class Users
 
-/* End of file home.php */
+/* End of file main/users.php */
