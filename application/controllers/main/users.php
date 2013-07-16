@@ -32,6 +32,20 @@
 class Users extends CI_Controller {
 // --------------------------------------------------------------------
 
+       /**
+        * Perform some initialisations here
+        */
+    
+        public function __construct() {
+            parent::__construct();
+            $this->load->library('Passwordhash', array(
+                                                       $this->config->item('phpass_hash_cost_log2'),
+                                                       $this->config->item('phpass_portable_hashes')
+                                                 )
+            );
+
+        }
+        
 	/**
 	 * Validate username and password entered in the login form
 	 *
@@ -59,12 +73,13 @@ class Users extends CI_Controller {
 		if ($this->form_validation->run()) {
 			$sess_data = array(
 				'username' => $this->input->post('username'),
-				'password' => md5($this->input->post('password')),
+				'password' => $this->user_model->get_user_hash($this->input->post('username')),
 				'is_logged_in' => TRUE
 			);
 			$this->session->set_userdata($sess_data);
 			redirect('main/home/index');
 		} else {
+                        $this->form_validation->set_message('_validate_user_login', 'That is not a valid username/password');
 			$data['is_logged_in'] = FALSE;
 			$data['title'] = 'Sportz - Login';
 
@@ -129,11 +144,11 @@ class Users extends CI_Controller {
 		$this->form_validation->set_message('matches', 'Passwords do not match');
 		if ($this->form_validation->run()) {
 			//add to database
-			$this->user_model->add_user();
+			$password_hashed = $this->user_model->add_user();
 			//set cookies
 			$sess_data = array(
 				'username' => $this->input->post('username'),
-				'password' => md5($this->input->post('password')),
+				'password' => $password_hashed,
 				'is_logged_in' => TRUE
 			);
 			$this->session->set_userdata($sess_data);
@@ -156,19 +171,11 @@ class Users extends CI_Controller {
 	}
 
 	public function _validate_user_login($username, $password) {
-		//encrypt password
-		$enc_password = md5($password);
-		//check if user name/password exists in database
-		if ($this->user_model->exists_username_password($username, $enc_password)) {
-			return(TRUE);
-		} else {
-			$this->form_validation->set_message('_validate_user_login', 'That is not a valid username/password');
-			return FALSE;
-		}
+                // If user validation was successful return encrypted hash for cookies
+                return $this->user_model->exists_username_password($username, $password);
 	}
 
 	public function _validate_user_signup($username, $password) {
-		$enc_password = md5($password);
 		$username = strtolower($username);
 		$query = $this->db->get_where('users', array('username' => $username), 1);
 		if ($query->num_rows == 1) {
