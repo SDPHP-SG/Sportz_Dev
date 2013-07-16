@@ -70,6 +70,7 @@ class Users extends CI_Controller {
 
 		$this->form_validation->set_error_delimiters('<div class="error">', '</div>');
 		$this->form_validation->set_rules($rules);
+                $this->form_validation->set_message('_validate_user_login', 'That is not a valid username/password');
 		if ($this->form_validation->run()) {
 			$sess_data = array(
 				'username' => $this->input->post('username'),
@@ -79,7 +80,6 @@ class Users extends CI_Controller {
 			$this->session->set_userdata($sess_data);
 			redirect('main/home/index');
 		} else {
-                        $this->form_validation->set_message('_validate_user_login', 'That is not a valid username/password');
 			$data['is_logged_in'] = FALSE;
 			$data['title'] = 'Sportz - Login';
 

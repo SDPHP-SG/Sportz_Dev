@@ -54,7 +54,7 @@
 	echo form_label("Stay Logged In", "persist");
 	echo form_checkbox($persist_data);
 
-	echo '<a href="signup">Sign Up</a>';
+	echo anchor('signup', 'Sign Up', array('title'=>'signup'));
 	echo '</div>';
 
 	echo form_close();
