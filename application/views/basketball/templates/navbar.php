@@ -1,4 +1,5 @@
-<link rel="stylesheet" type="text/css" href="/css/basketball/navbar.css" />
+<?php echo link_tag('css/basketball/navbar.css'); ?>
+<!-- <link rel="stylesheet" type="text/css" href="/css/basketball/navbar.css" /> -->
 
 <div id="bb_navbar">
 	<ul id="bb_navlist">

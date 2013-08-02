@@ -1,4 +1,5 @@
-<link rel="stylesheet" type="text/css" href="/css/main/user.css" />
+<?php echo link_tag('css/main/user.css'); ?>
+<!-- <link rel="stylesheet" type="text/css" href="/css/main/user.css" /> -->
 
 <div id="login_container" class="user_form">
 	<?php

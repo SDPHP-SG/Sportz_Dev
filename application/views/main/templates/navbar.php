@@ -1,4 +1,5 @@
-<link rel="stylesheet" type="text/css" href="/css/main/navbar.css" />
+<?php echo link_tag('css/main/navbar.css'); ?>
+<!-- <link rel="stylesheet" type="text/css" href="/css/main/navbar.css" /> -->
 
 <div id="navbar">
 	<ul id="navlist">
