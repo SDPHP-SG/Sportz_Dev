@@ -44,15 +44,13 @@ class Home extends CI_Controller {
 		$this->load->view('main/templates/wrapper_top', $data);
 		$this->load->view('main/templates/header', $data);
 		$this->load->view('main/templates/navbar', $data);
-		$this->load->view('main/templates/body_top', $data);
 
 		if (method_exists($this, $method)) {
-			$this->$method();
+			isset($params[0]) ? $this->$method($params[0]) : $this->$method();
 		} else {
 			$this->index();
 		}
 
-		$this->load->view('main/templates/body_bottom', $data);
 		$this->load->view('main/templates/footer', $data);
 		$this->load->view('main/templates/wrapper_bottom', $data);
 	}

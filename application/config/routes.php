@@ -49,8 +49,13 @@ $route['logout'] = 'main/users/logout';
 
 $route['basketball'] = 'basketball/home/index';
 
+$route['football/team'] = 'football/team/display/1';
+$route['football'] = 'football/home/index';
+
+//use 404_override to redirect to home page if page not found
+//don't use locally while debugging because it will hide page not found error
+$route['404_override'] = 'override';
 $route['default_controller'] = 'main/home/index';
-$route['404_override'] = 'main/home';
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

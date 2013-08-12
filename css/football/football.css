@@ -6,6 +6,10 @@
         CSS related to the module "main"
 */
 
-main {
-	background-color: #fff;
+main.football {
+	background-color: #FFFFFF;
+}
+
+.football div {
+	border: 1px solid red;
 }

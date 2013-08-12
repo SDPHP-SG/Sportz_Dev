@@ -35,7 +35,7 @@ class Users extends CI_Controller {
        /**
         * Perform some initialisations here
         */
-    
+
         public function __construct() {
             parent::__construct();
             $this->load->library('Passwordhash', array(
@@ -45,7 +45,7 @@ class Users extends CI_Controller {
             );
 
         }
-        
+
 	/**
 	 * Validate username and password entered in the login form
 	 *
@@ -86,11 +86,9 @@ class Users extends CI_Controller {
 			$this->load->view('main/templates/wrapper_top', $data);
 			$this->load->view('main/templates/header', $data);
 			$this->load->view('main/templates/navbar', $data);
-			$this->load->view('main/templates/body_top', $data);
 
 			$this->load->view('main/login_form');
 
-			$this->load->view('main/templates/body_bottom', $data);
 			$this->load->view('main/templates/footer', $data);
 			$this->load->view('main/templates/wrapper_bottom', $data);
 		}
@@ -160,11 +158,9 @@ class Users extends CI_Controller {
 			$this->load->view('main/templates/wrapper_top', $data);
 			$this->load->view('main/templates/header', $data);
 			$this->load->view('main/templates/navbar', $data);
-			$this->load->view('main/templates/body_top', $data);
 
 			$this->load->view('main/signup_form');
 
-			$this->load->view('main/templates/body_bottom', $data);
 			$this->load->view('main/templates/footer', $data);
 			$this->load->view('main/templates/wrapper_bottom', $data);
 		}

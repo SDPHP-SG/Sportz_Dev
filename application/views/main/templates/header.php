@@ -1,20 +1,23 @@
-<?php echo link_tag('css/main/user.css'); ?>
-<!-- <link rel="stylesheet" type="text/css" href="/css/main/user.css" /> -->
-
-<div id="header_container" class="container_ctr">
-
-	<div id="header">
-		<img src="/assets/images/main/logo.jpg" />
+<header>
+	<div class="media">
+		<a class="pull-left" href="#">
+		<?php
+		$image_properties = array('src' => 'images/main/logo.jpg', 'class' => 'media-object', 'data-src' => 'holder.js/64x64');
+		echo img($image_properties);
+		?>
+		</a>
+		<div class="media-body">
+			<h4 class="media-heading">Feed your addiction</h4>
+		</div>
 		<?php
 		//If user is logged in already, display the welcome username message in the header.
-		if ($is_logged_in) {
+		if($is_logged_in) {
 			include "welcome_msg.php";
-		//If user is not logged in and the current page isn't the login or signup page
-		//then display the login form in the header.
+			//If user is not logged in and the current page isn't the login or signup page
+			//then display the login form in the header.
 		}elseif($this->router->method <> 'login') { // and $this->router->method <> 'signup') {
 			include("header_login_form.php");
 		}
 		?>
-	</div> <!-- end div header -->
-</div> <!-- end div header_container -->
-<div class="div_clear"></div>
+	</div>
+</header>

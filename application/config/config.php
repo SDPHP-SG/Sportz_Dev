@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= "http://sportz.localhost/";
+$config['base_url']	= "http://sportz.loc/";
 
 /*
 |--------------------------------------------------------------------------
@@ -362,10 +362,10 @@ $config['proxy_ips'] = '';
  * ------------------------------------------------------------------------
  *  PasswordHash configuration
  * ------------------------------------------------------------------------
- * 
+ *
  * Define  two main variables that PasswordHash constructor uses:
- * 'phpass_hash_cost_log2' -  integer 8..31, defines in how many iterations salt for 
- *                            password hashing will be performed 
+ * 'phpass_hash_cost_log2' -  integer 8..31, defines in how many iterations salt for
+ *                            password hashing will be performed
  *                            (it will equial to 2^$value -1 times)
  * 'phpass_portanle_hashes' - boolean, defines whether use PHP3 portable alhorithms
  */
