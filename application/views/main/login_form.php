@@ -1,66 +1,58 @@
-<?php echo link_tag('css/main/user.css'); ?>
-<!-- <link rel="stylesheet" type="text/css" href="/css/main/user.css" /> -->
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h2>Please Log In</h2>
+			</div>
+			<div class="modal-body">
+				<form action="login" method="post" class="form-horizontal" role="form">
+					<fieldset>
+						<div class="form-group">
+							<label for="username" class="col-lg-4 control-label">User Name</label>
+							<div class="col-lg-8">
+								<input name="username" id="username" type="text"
+									   class="form-control input-sm"
+									   value="<?php set_value('username'); ?>"
+									   placeholder="User Name" tabindex="1">
+							</div>
+							<div class="col-lg-8 col-lg-offset-4 has-error">
+								<?php echo form_error('username'); ?>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="password" class="col-lg-4 control-label">Password</label>
+							<div class="col-lg-8">
+								<input name="password" id="password" type="password" class="form-control"
+									   value="<?php set_value('password'); ?>" placeholder="Password" tabindex="2">
+							</div>
+							<div class="col-lg-8 col-lg-offset-4 has-error">
+								<?php echo form_error('password'); ?>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-lg-offset-4 col-lg-8">
+								<div class="checkbox">
+									<label><input type="checkbox" tabindex="3">Remember me</label>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-lg-offset-4 col-lg-8">
+								<button type="submit" class="btn btn-default" tabindex="4">Sign In</button>
+							</div>
+						</div>
+					</fieldset>
+				</form>
+			</div>
+			<div class="modal-footer">
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
-<div id="login_container" class="user_form">
-	<?php
-	echo form_open('login');
-
-	echo '<div>';
-	/* username */
-	$username_data = array(
-		'name' => 'username',
-		'id' => 'username',
-		'type' => 'text',
-		'class' => 'inputtext',
-		'value' => set_value('username'),
-		'tabindex' => '1'
-	);
-	echo form_label("User Name", "username");
-	echo form_input($username_data);
-	echo form_error('username');
-	echo '</div>';
-
-	echo '<div>';
-	/* password */
-	$password_data = array(
-		'name' => 'password',
-		'id' => 'password',
-		'type' => 'password',
-		'class' => 'inputtext',
-		'value' => set_value('password'),
-		'tabindex' => '2'
-	);
-	echo form_label("Password", "password");
-	echo form_input($password_data);
-	echo form_error('password');
-	echo '</div>';
-
-	echo '<div class="div_center">';
-	/* submit */
-	$submit_data = array(
-		'name' => 'login_button',
-		'id' => 'login_button',
-		'class' => 'button',
-		'value' => 'Log In',
-		'tabindex' => '3'
-	);
-	echo form_submit($submit_data);
-	echo '</div>';
-
-	echo '<div>';
-	/* persist (stay logged in) */
-	$persist_data = array(
-		'name' => 'persist',
-		'id' => 'persist',
-		'type' => 'checkbox',
-		'value' => 'persist',
-		'checked' => set_checkbox('persist', 'persist', TRUE),
-		'tabindex' => '4'
-	);
-	echo form_label("Stay Logged In", "persist");
-	echo form_checkbox($persist_data);
-
-	echo anchor('signup', 'Sign Up', array('title'=>'signup'));
-	echo '</div>';
-
-	echo form_close('</div>');
+<script>
+	$(document).ready(function() {
+		$('#myModal').modal();
+	});
+</script>

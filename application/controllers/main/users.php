@@ -68,7 +68,7 @@ class Users extends CI_Controller {
 			)
 		);
 
-		$this->form_validation->set_error_delimiters('<div class="error">', '</div>');
+		$this->form_validation->set_error_delimiters('<p class="help-block">', '</p>');
 		$this->form_validation->set_rules($rules);
                 $this->form_validation->set_message('_validate_user_login', 'That is not a valid username/password');
 		if ($this->form_validation->run()) {
@@ -78,7 +78,7 @@ class Users extends CI_Controller {
 				'is_logged_in' => TRUE
 			);
 			$this->session->set_userdata($sess_data);
-			redirect('main/home/index');
+			redirect('/home');
 		} else {
 			$data['is_logged_in'] = FALSE;
 			$data['title'] = 'Sportz - Login';
@@ -99,7 +99,7 @@ class Users extends CI_Controller {
 	 */
 	public function logout() {
 		$this->session->sess_destroy();
-		redirect('main/home/index');
+		redirect('/home');
 	}
 
 	public function signup() {

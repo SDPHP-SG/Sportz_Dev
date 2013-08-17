@@ -1,5 +1,6 @@
-/.gitignore/
 /nbproject/private/
 /nbproject/
 /system/
 /user_guide/
+/application/config/
+!/application/config/routes.php

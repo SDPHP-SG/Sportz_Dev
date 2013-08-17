@@ -1,27 +1,45 @@
-<main>
-	<div class="row-fluid">
-		<div class="col6 offset4">
-			 <h2>Create A Football Team</h2>
-
+<main class="football">
+	<div class="row">
+		<h2 class="col-lg-offset-3">Create A Football Team</h2>
+		<div class="col-6 col-lg-offset-2">
 			<?php echo validation_errors(); ?>
 
-			<?php echo form_open('football/team/create') ?>
-				<label for="name">Name</label>
-				<input type="input" name="name" /><br />
-
-				<label for="city">City</label>
-				<input type="input" name="city" /><br />
-
-				<label for="state">State</label>
-				<input type="input" name="state" /><br />
-
-				<label for="date_start">Formed Date</label>
-				<input type="input" name="date_start" /><br />
-
-				<label for="date_end">End Date</label>
-				<input type="input" name="date_end" /><br />
-
-				<input type="submit" name="submit" value="Create New Team" />
+			<form action="football/team/create" class="form-horizontal" role="form">
+				<div class="form-group">
+					<label for="name" class="col-lg-2 control-label">Name</label>
+					<div class="col-lg-4">
+						<input type="text" class="form-control" id="name" placeholder="Name">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="city" class="col-lg-2 control-label">City</label>
+					<div class="col-lg-4">
+						<input type="text" class="form-control" id="city" placeholder="City">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="state" class="col-lg-2 control-label">State</label>
+					<div class="col-lg-4">
+						<input type="text" class="form-control" id="state" placeholder="State">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="date_start" class="col-lg-2 control-label">Formed Date</label>
+					<div class="col-lg-4">
+						<input type="text" class="form-control" id="date_start" placeholder="Formed Date">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="date_end" class="col-lg-2 control-label">End Date</label>
+					<div class="col-lg-4">
+						<input type="text" class="form-control" id="date_end" placeholder="End Date">
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-lg-offset-2 col-lg-6">
+						<button type="submit" class="btn btn-default">Create Team</button>
+					</div>
+				</div>
 			</form>
 		</div>
 	</div>

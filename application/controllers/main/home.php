@@ -31,8 +31,8 @@
  */
 class Home extends CI_Controller {
 
-	/* by declaring this _remap function, it forces all calls to the Home controller
-	 * to first call this function.  This allows displaying the header page and the
+	/* by declaring this _remap function, it forces all calls to this controller
+	 * to first call the _remap function.  This allows displaying the header page and the
 	 * footer page once.
 	 */
 	public function _remap($method, $params = array()) {

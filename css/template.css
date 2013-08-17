@@ -1,30 +1,17 @@
 /*
-    Document   : main.css
-    Created on : Apr 26, 2013, 4:32:16 PM
-    Author     : Matt Gass
-    Description:
-        CSS related to the module "main"
+Document:template
+Createdon:Aug15,2013,11:03:57AM
+Author:user
+Description:
+Purposeofthestylesheetfollows.
 */
 
-
 @media screen and (max-width: 400px) {}
-
 @media (max-width: 767px) {}
-
-@media (min-width: 768px) {
-	header form div[class ^= "col-"] {
-		padding: 2px;
-	}
-}
-
+@media (min-width: 768px) {}
 @media (min-width: 768px) and (max-width: 991px) {}
-
 @media screen and (min-width: 768px) {}
-
 @media (min-width: 992px) {}
-
 @media (min-width: 992px) and (max-width: 1199px) {}
-
 @media (min-width: 1200px) {}
-
 @media print {}

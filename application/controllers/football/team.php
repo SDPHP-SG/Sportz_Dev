@@ -49,8 +49,8 @@ class Team extends CI_Controller {
 		$this->load->view('main/templates/header', $data);
 		$this->load->view('main/templates/navbar', $data);
 
-		$this->load->view('football/templates/header', $data);
 		$this->load->view('football/templates/navbar', $data);
+		$this->load->view('football/templates/header', $data);
 
 		if(method_exists($this, $method)) {
 			isset($params[0]) ? $this->$method($params[0]) : $this->$method();
@@ -86,7 +86,8 @@ class Team extends CI_Controller {
 		}
 	}
 
-	public function display($team_id) {
+	public function display($team_id=null) {
+		if(!$team_id) $team_id = '1';
 		$data['team_data'] = $this->team_model->readTeam($team_id);
 		$data['title'] = 'Sportz - Football';
 

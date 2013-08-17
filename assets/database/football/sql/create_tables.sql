@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 12, 2013 at 09:49 PM
+-- Generation Time: Aug 17, 2013 at 10:27 PM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.3.13
 
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `ftbl_people` (
   `first_name` varchar(30) DEFAULT NULL,
   `last_name` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
@@ -57,13 +57,30 @@ CREATE TABLE IF NOT EXISTS `ftbl_person_stats` (
 DROP TABLE IF EXISTS `ftbl_teams`;
 CREATE TABLE IF NOT EXISTS `ftbl_teams` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `team_id` int(11) DEFAULT NULL,
   `name` varchar(30) DEFAULT NULL,
   `city` varchar(30) DEFAULT NULL,
-  `state` varchar(30) DEFAULT NULL,
+  `state` char(2) DEFAULT NULL,
   `date_start` date DEFAULT NULL,
   `date_end` date DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_team_to_team_master_idx` (`team_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ftbl_team_master`
+--
+
+DROP TABLE IF EXISTS `ftbl_team_master`;
+CREATE TABLE IF NOT EXISTS `ftbl_team_master` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `description` varchar(45) DEFAULT NULL,
+  `date_established` date DEFAULT NULL,
+  `date_terminated` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
@@ -90,13 +107,13 @@ CREATE TABLE IF NOT EXISTS `ftbl_team_to_person` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `team_id` int(11) DEFAULT NULL,
   `person_id` int(11) DEFAULT NULL,
-  `status` char(2) DEFAULT NULL,
+  `status` char(1) DEFAULT NULL,
   `date_start` date DEFAULT NULL,
   `date_end` date DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_person_idx` (`person_id`),
   KEY `fk_team_idx` (`team_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COMMENT='\n' AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COMMENT='\n' AUTO_INCREMENT=2 ;
 
 --
 -- Constraints for dumped tables
@@ -107,6 +124,12 @@ CREATE TABLE IF NOT EXISTS `ftbl_team_to_person` (
 --
 ALTER TABLE `ftbl_person_stats`
   ADD CONSTRAINT `fk_person_stats_person` FOREIGN KEY (`person_id`) REFERENCES `ftbl_people` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `ftbl_teams`
+--
+ALTER TABLE `ftbl_teams`
+  ADD CONSTRAINT `fk_team_to_team_master` FOREIGN KEY (`team_id`) REFERENCES `ftbl_team_master` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `ftbl_team_stats`

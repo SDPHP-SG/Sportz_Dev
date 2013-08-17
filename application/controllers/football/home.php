@@ -45,8 +45,8 @@ class Home extends CI_Controller {
 			$this->load->view('main/templates/header', $data);
 			$this->load->view('main/templates/navbar', $data);
 
-			$this->load->view('football/templates/header', $data);
 			$this->load->view('football/templates/navbar', $data);
+			$this->load->view('football/templates/header', $data);
 
 			if(method_exists($this, $method)) {
 				isset($params[0]) ? $this->$method($params[0]) : $this->$method();
