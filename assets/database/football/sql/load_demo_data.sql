@@ -21,11 +21,11 @@ SET time_zone = "+00:00";
 --
 
 --
--- Dumping data for table `ftbl_people`
+-- Dumping data for table `ftbl_team_master`
 --
 
-INSERT INTO `ftbl_people` (`id`, `first_name`, `last_name`) VALUES
-(1, 'Jack', 'Kemp');
+INSERT INTO `ftbl_team_master` (`id`, `description`, `date_established`, `date_terminated`) VALUES
+(1, 'Established 1959 as the Los Angeles Chargers', '1959-01-01', NULL);
 
 --
 -- Dumping data for table `ftbl_teams`
@@ -34,12 +34,13 @@ INSERT INTO `ftbl_people` (`id`, `first_name`, `last_name`) VALUES
 INSERT INTO `ftbl_teams` (`id`, `team_id`, `name`, `city`, `state`, `date_start`, `date_end`) VALUES
 (1, 1, 'Chargers', 'Los Angeles', 'CA', '1959-01-01', NULL);
 
+
 --
--- Dumping data for table `ftbl_team_master`
+-- Dumping data for table `ftbl_people`
 --
 
-INSERT INTO `ftbl_team_master` (`id`, `description`, `date_established`, `date_terminated`) VALUES
-(1, 'Established 1959 as the Los Angeles Chargers', '1959-01-01', NULL);
+INSERT INTO `ftbl_people` (`id`, `first_name`, `last_name`) VALUES
+(1, 'Jack', 'Kemp');
 
 --
 -- Dumping data for table `ftbl_team_to_person`
