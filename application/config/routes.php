@@ -49,7 +49,7 @@ $route['logout'] = 'main/users/logout';
 
 $route['basketball'] = 'basketball/home/index';
 
-$route['football/team'] = 'football/team/display/1';
+$route['football/team'] = 'football/team/display';
 $route['football'] = 'football/home/index';
 
 //use 404_override to redirect to home page if page not found
