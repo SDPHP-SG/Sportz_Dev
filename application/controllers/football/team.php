@@ -29,91 +29,82 @@
  */
 class Team extends CI_Controller {
 
-	public function __construct() {
-		parent::__construct();
-		$this->load->model('football/team_model');
-	}
+    public function __construct() {
+        parent::__construct();
+        $this->load->model('football/team_model');
 
-	/* by declaring this _remap function, it forces all calls to the Home controller
-	 * to first call this function.  This allows displaying the header page, the page called and the
-	 * footer page once.
-	 */
+        $data['title'] = 'Sportz - Football';
 
-	public function _remap($method, $params = array()) {
-		$data['title'] = 'Sportz - Football';
+        //Check to see if user is already logged in.
+        $data['is_logged_in'] = $this->user->is_logged_in();
 
-		//Check to see if user is already logged in.
-		$data['is_logged_in'] = $this->user->is_logged_in();
+        // Load View class and set variables that will be reflected in layout
+        $this->load->library('View');
+        $this->view->set_layout_vars($data);
+    }
 
-		$this->load->view('main/templates/wrapper_top', $data);
-		$this->load->view('main/templates/header', $data);
-		$this->load->view('main/templates/navbar', $data);
+    public function create($parms = null) {
+        $this->load->helper('form');
+        $this->load->library('form_validation');
 
-		$this->load->view('football/templates/navbar', $data);
-		$this->load->view('football/templates/header', $data);
+        $data['title'] = 'Sportz - Football';
 
-		if(method_exists($this, $method)) {
-			isset($params[0]) ? $this->$method($params[0]) : $this->$method();
-		}else {
-			$this->index();
-		}
+        $this->form_validation->set_rules('name', 'Name', 'required');
 
-		$this->load->view('football/templates/footer', $data);
+        if ($this->form_validation->run() === FALSE) {
+            $this->load->view('football/team_create');
+        } else {
+            if ($this->team_model->createTeam()) {
+                $team_id = $this->db->insert_id();
+                $data['team_data'] = $this->team_model->readTeam($team_id);
+                $this->load->view('football/team_display', $data);
+            } else {
+                $data["team_data"]["name"] = 'Error';
+                $this->load->view('football/team_display', $data);
+            }
+        }
+    }
 
-		$this->load->view('main/templates/footer', $data);
-		$this->load->view('main/templates/wrapper_bottom', $data);
-	}
+    /**
+     * In this method usage of layouts and View class is demonstrated
+     * @param string $team_id
+     */
+    public function display($team_id = null) {
+        if (!$team_id)
+            $team_id = '1';
+        $data['team_data'] = $this->team_model->readTeam($team_id);
+        $data['title'] = 'Sportz - Football';
+        
+        // Load section specific layout - local layout
+        $this->view->set_local_layout('football/layout');
+        
+        // Uncoment following line to see hoe layout works
+        //$this->view->enable_layout(false);
+        
+        $this->view->render('football/team_display', $data);
+    }
 
-	public function create($parms = null) {
-		$this->load->helper('form');
-		$this->load->library('form_validation');
+    public function update($team_id) {
+        $data['title'] = 'Sportz - Football';
 
-		$data['title'] = 'Sportz - Football';
+        //TODO Update team record
+        //Read updated record and display
+        $data['team_data'] = $this->team_model->readTeam($team_id);
+        $this->load->view('football/team_display', $data);
+    }
 
-		$this->form_validation->set_rules('name', 'Name', 'required');
+    public function delete($team_id) {
+        $data['title'] = 'Sportz - Football';
 
-		if($this->form_validation->run() === FALSE) {
-			$this->load->view('football/team_create');
-		}else {
-			if($this->team_model->createTeam()) {
-				$team_id = $this->db->insert_id();
-				$data['team_data'] = $this->team_model->readTeam($team_id);
-				$this->load->view('football/team_display', $data);
-			}else {
-				$data["team_data"]["name"] = 'Error';
-				$this->load->view('football/team_display', $data);
-			}
-		}
-	}
+        //TODO make sure this works to delete team
+        $this->team_model->deleteTeam($team_id);
 
-	public function display($team_id=null) {
-		if(!$team_id) $team_id = '1';
-		$data['team_data'] = $this->team_model->readTeam($team_id);
-		$data['title'] = 'Sportz - Football';
-
-		$this->load->view('football/team_display', $data);
-	}
-
-	public function update($team_id) {
-		$data['title'] = 'Sportz - Football';
-
-		//TODO Update team record
-		//Read updated record and display
-		$data['team_data'] = $this->team_model->readTeam($team_id);
-		$this->load->view('football/team_display', $data);
-	}
-
-	public function delete($team_id) {
-		$data['title'] = 'Sportz - Football';
-
-		//TODO make sure this works to delete team
-		$this->team_model->deleteTeam($team_id);
-
-		//TODO create team_delete view for successful deletion
-		$this->load->view('football/team_deleted', $data);
-	}
+        //TODO create team_delete view for successful deletion
+        $this->load->view('football/team_deleted', $data);
+    }
 
 }
+
 //end of class Team
 
 /* End of file football/home.php */
